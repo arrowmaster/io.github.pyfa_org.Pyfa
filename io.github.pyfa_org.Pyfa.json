@@ -1,63 +1,63 @@
 {
-  "id" : "io.github.pyfa_org.Pyfa",
-  "runtime" : "org.gnome.Platform",
-  "runtime-version" : "47",
-  "sdk" : "org.gnome.Sdk",
-  "command" : "pyfa",
-  "finish-args" : [
-    "--share=ipc",
-    "--share=network",
-    "--socket=x11",
-    "--device=dri"
-  ],
-  "separate-locales" : false,
-  "modules" : [
-    "python3-modules.json",
-    {
-      "name": "pyfa",
-      "sources" : [
+    "id": "io.github.pyfa_org.Pyfa",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "47",
+    "sdk": "org.gnome.Sdk",
+    "command": "pyfa",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--device=dri"
+    ],
+    "separate-locales": false,
+    "modules": [
+        "python3-modules.json",
         {
-          "url": "https://github.com/pyfa-org/Pyfa/archive/refs/tags/v2.62.0.tar.gz",
-          "sha256": "849628e4605d1a9a0cd56f3d33d7a34f0879c2bf1d44a235423d4208ee3b2213",
-          "type": "archive",
-          "x-checker-data": {
-            "type": "json",
-            "url": "https://api.github.com/repos/pyfa-org/Pyfa/releases/latest",
-            "version-query": ".tag_name | sub(\"^v\"; \"\")",
-            "url-query": "\"https://github.com/pyfa-org/Pyfa/archive/refs/tags/\" + .tag_name + \".tar.gz\"",
-            "is-main-source": true
-          }
-        },
-        {
-          "type": "file",
-          "path": "pyfa"
-        },
-        {
-          "type": "file",
-          "path": "io.github.pyfa_org.Pyfa.desktop"
-        },
-        {
-            "type": "file",
-            "path": "io.github.pyfa_org.Pyfa.metainfo.xml"
-        },
-        {
-          "type": "file",
-          "path": "icons/io.github.pyfa_org.Pyfa-256.png"
+            "name": "pyfa",
+            "sources": [
+                {
+                    "url": "https://github.com/pyfa-org/Pyfa/archive/refs/tags/v2.62.0.tar.gz",
+                    "sha256": "849628e4605d1a9a0cd56f3d33d7a34f0879c2bf1d44a235423d4208ee3b2213",
+                    "type": "archive",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/pyfa-org/Pyfa/releases/latest",
+                        "version-query": ".tag_name | sub(\"^v\"; \"\")",
+                        "url-query": "\"https://github.com/pyfa-org/Pyfa/archive/refs/tags/\" + .tag_name + \".tar.gz\"",
+                        "is-main-source": true
+                    }
+                },
+                {
+                    "type": "file",
+                    "path": "pyfa"
+                },
+                {
+                    "type": "file",
+                    "path": "io.github.pyfa_org.Pyfa.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "io.github.pyfa_org.Pyfa.metainfo.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "icons/io.github.pyfa_org.Pyfa-256.png"
+                }
+            ],
+            "buildsystem": "simple",
+            "build-commands": [
+                "find locale/ -type f -name '*.po' -exec msgen '{}' -o '{}' \\;",
+                "python3 scripts/compile_lang.py",
+                "python3 db_update.py",
+                "mkdir -p ${FLATPAK_DEST}/lib/pyfa",
+                "cp -r eos graphs gui imgs locale service utils eve.db config.py pyfa.py db_update.py README.md LICENSE version.yml ${FLATPAK_DEST}/lib/pyfa",
+                "find ${FLATPAK_DEST}/lib/pyfa | grep -E '(__pycache__|\\.pyc|\\.pyo$)' | xargs rm -rf",
+                "install -D --mode=0755 pyfa /app/bin/pyfa",
+                "install -D -t ${FLATPAK_DEST}/share/applications/ ./io.github.pyfa_org.Pyfa.desktop",
+                "install -D ./io.github.pyfa_org.Pyfa-256.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/io.github.pyfa_org.Pyfa.png",
+                "install -D -t ${FLATPAK_DEST}/share/metainfo/ ./io.github.pyfa_org.Pyfa.metainfo.xml"
+            ]
         }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "find locale/ -type f -name '*.po' -exec msgen '{}' -o '{}' \\;",
-        "python3 scripts/compile_lang.py",
-        "python3 db_update.py",
-        "mkdir -p ${FLATPAK_DEST}/lib/pyfa",
-        "cp -r eos graphs gui imgs locale service utils eve.db config.py pyfa.py db_update.py README.md LICENSE version.yml ${FLATPAK_DEST}/lib/pyfa",
-        "find ${FLATPAK_DEST}/lib/pyfa | grep -E '(__pycache__|\\.pyc|\\.pyo$)' | xargs rm -rf",
-        "install -D --mode=0755 pyfa /app/bin/pyfa",
-        "install -D -t ${FLATPAK_DEST}/share/applications/ ./io.github.pyfa_org.Pyfa.desktop",
-        "install -D ./io.github.pyfa_org.Pyfa-256.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/io.github.pyfa_org.Pyfa.png",
-        "install -D -t ${FLATPAK_DEST}/share/metainfo/ ./io.github.pyfa_org.Pyfa.metainfo.xml"
-      ]
-    }
-  ]
+    ]
 }
