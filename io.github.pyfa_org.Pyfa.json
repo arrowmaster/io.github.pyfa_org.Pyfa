@@ -1,139 +1,139 @@
 {
-  "id" : "io.github.pyfa_org.Pyfa",
-  "runtime" : "org.gnome.Platform",
-  "runtime-version" : "47",
-  "sdk" : "org.gnome.Sdk",
-  "command" : "pyfa",
-  "finish-args" : [
-    "--share=ipc",
-    "--share=network",
-    "--socket=x11",
-    "--device=dri"
-  ],
-  "separate-locales" : false,
-  "cleanup" : [
-    "/lib/cmake/",
-    "/lib/pkgconfig",
-    "/man",
-    "/include",
-    "/share/aclocal",
-    "/share/gtk-2.0",
-    "/share/locale",
-    "/share/man",
-    "/share/gtk-doc",
-    "/share/doc",
-    "/share/vala",
-    "*.la",
-    "*.a",
-    "/bin/wmf*",
-    "/bin/libwmf-*",
-    "/share/pygobject/2.0/codegen",
-    "/bin/pygtk*",
-    "/bin/pygobject*",
-    "/lib/pygtk",
-    "/bin/python*-config",
-    "/bin/pip*",
-    "/bin/smtpd.py",
-    "*.pyc",
-    "*.pyo",
-    "/bin/cygdb",
-    "/bin/cython",
-    "/bin/cythonize",
-    "/bin/easy_install",
-    "/bin/f2py",
-    "/bin/f2py3",
-    "/bin/f2py3.7",
-    "/bin/futurize",
-    "/bin/helpviewer",
-    "/bin/img2png",
-    "/bin/img2py",
-    "/bin/img2xpm",
-    "/bin/markdown2",
-    "/bin/normalizer",
-    "/bin/pasteurize",
-    "/bin/pycrust",
-    "/bin/pyrsa-decrypt",
-    "/bin/pyrsa-encrypt",
-    "/bin/pyrsa-keygen",
-    "/bin/pyrsa-priv2pub",
-    "/bin/pyrsa-sign",
-    "/bin/pyrsa-verify",
-    "/bin/pyshell",
-    "/bin/pyslices",
-    "/bin/pyslicesshell",
-    "/bin/pywxrc",
-    "/bin/roman",
-    "/bin/wheel",
-    "/bin/wxdemo",
-    "/bin/wxdocs",
-    "/bin/wxget"
-  ],
-  "modules" : [
-    "python3-modules.json",
-    {
-      "name": "python3-matplotlib",
-      "buildsystem": "simple",
-      "build-commands": [
-        "pip3 install . --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} --no-build-isolation"
-      ],
-      "sources": [
+    "id": "io.github.pyfa_org.Pyfa",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "47",
+    "sdk": "org.gnome.Sdk",
+    "command": "pyfa",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--device=dri"
+    ],
+    "separate-locales": false,
+    "cleanup": [
+        "/lib/cmake/",
+        "/lib/pkgconfig",
+        "/man",
+        "/include",
+        "/share/aclocal",
+        "/share/gtk-2.0",
+        "/share/locale",
+        "/share/man",
+        "/share/gtk-doc",
+        "/share/doc",
+        "/share/vala",
+        "*.la",
+        "*.a",
+        "/bin/wmf*",
+        "/bin/libwmf-*",
+        "/share/pygobject/2.0/codegen",
+        "/bin/pygtk*",
+        "/bin/pygobject*",
+        "/lib/pygtk",
+        "/bin/python*-config",
+        "/bin/pip*",
+        "/bin/smtpd.py",
+        "*.pyc",
+        "*.pyo",
+        "/bin/cygdb",
+        "/bin/cython",
+        "/bin/cythonize",
+        "/bin/easy_install",
+        "/bin/f2py",
+        "/bin/f2py3",
+        "/bin/f2py3.7",
+        "/bin/futurize",
+        "/bin/helpviewer",
+        "/bin/img2png",
+        "/bin/img2py",
+        "/bin/img2xpm",
+        "/bin/markdown2",
+        "/bin/normalizer",
+        "/bin/pasteurize",
+        "/bin/pycrust",
+        "/bin/pyrsa-decrypt",
+        "/bin/pyrsa-encrypt",
+        "/bin/pyrsa-keygen",
+        "/bin/pyrsa-priv2pub",
+        "/bin/pyrsa-sign",
+        "/bin/pyrsa-verify",
+        "/bin/pyshell",
+        "/bin/pyslices",
+        "/bin/pyslicesshell",
+        "/bin/pywxrc",
+        "/bin/roman",
+        "/bin/wheel",
+        "/bin/wxdemo",
+        "/bin/wxdocs",
+        "/bin/wxget"
+    ],
+    "modules": [
+        "python3-modules.json",
         {
-          "type": "archive",
-          "dest": "build/freetype-2.6.1",
-          "url": "https://downloads.sourceforge.net/project/freetype/freetype2/2.6.1/freetype-2.6.1.tar.gz",
-          "sha256": "0a3c7dfbda6da1e8fce29232e8e96d987ababbbf71ebc8c75659e4132c367014"
+            "name": "python3-matplotlib",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install . --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "dest": "build/freetype-2.6.1",
+                    "url": "https://downloads.sourceforge.net/project/freetype/freetype2/2.6.1/freetype-2.6.1.tar.gz",
+                    "sha256": "0a3c7dfbda6da1e8fce29232e8e96d987ababbbf71ebc8c75659e4132c367014"
+                },
+                {
+                    "type": "archive",
+                    "dest": "build/qhull-2020.2",
+                    "url": "http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz",
+                    "sha256": "b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://files.pythonhosted.org/packages/fb/ab/38a0e94cb01dacb50f06957c2bed1c83b8f9dac6618988a37b2487862944/matplotlib-3.8.2.tar.gz",
+                    "sha256": "01a978b871b881ee76017152f1f1a0cbf6bd5f7b8ff8c96df0df1bd57d8755a1"
+                }
+            ]
         },
         {
-          "type": "archive",
-          "dest": "build/qhull-2020.2",
-          "url": "http://www.qhull.org/download/qhull-2020-src-8.0.2.tgz",
-          "sha256": "b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e"
-        },
-        {
-          "type": "archive",
-          "url": "https://files.pythonhosted.org/packages/fb/ab/38a0e94cb01dacb50f06957c2bed1c83b8f9dac6618988a37b2487862944/matplotlib-3.8.2.tar.gz",
-          "sha256": "01a978b871b881ee76017152f1f1a0cbf6bd5f7b8ff8c96df0df1bd57d8755a1"
+            "name": "pyfa",
+            "sources": [
+                {
+                    "url" : "https://github.com/pyfa-org/Pyfa/archive/refs/tags/v2.61.3.tar.gz",
+                    "sha256" : "5151ee981170df21775e835a6189370c35bb1c41d35dc546408994f1fcbb7080",
+                    "type" : "archive"
+                },
+                {
+                    "type": "file",
+                    "path": "pyfa"
+                },
+                {
+                    "type": "file",
+                    "path": "io.github.pyfa_org.Pyfa.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "io.github.pyfa_org.Pyfa.metainfo.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "icons/io.github.pyfa_org.Pyfa-256.png"
+                }
+            ],
+            "buildsystem": "simple",
+            "build-commands": [
+                "find locale/ -type f -name '*.po' -exec msgen '{}' -o '{}' \\;",
+                "python3 scripts/compile_lang.py",
+                "python3 db_update.py",
+                "mkdir -p ${FLATPAK_DEST}/lib/pyfa",
+                "cp -r eos graphs gui imgs locale service utils eve.db config.py pyfa.py db_update.py README.md LICENSE version.yml ${FLATPAK_DEST}/lib/pyfa",
+                "find ${FLATPAK_DEST}/lib/pyfa | grep -E '(__pycache__|\\.pyc|\\.pyo$)' | xargs rm -rf",
+                "install -D --mode=0755 pyfa /app/bin/pyfa",
+                "install -D -t ${FLATPAK_DEST}/share/applications/ ./io.github.pyfa_org.Pyfa.desktop",
+                "install -D ./io.github.pyfa_org.Pyfa-256.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/io.github.pyfa_org.Pyfa.png",
+                "install -D -t ${FLATPAK_DEST}/share/metainfo/ ./io.github.pyfa_org.Pyfa.metainfo.xml"
+            ]
         }
-      ]
-    },
-    {
-      "name": "pyfa",
-      "sources" : [
-        {
-          "url" : "https://github.com/pyfa-org/Pyfa/archive/refs/tags/v2.61.3.tar.gz",
-          "sha256" : "5151ee981170df21775e835a6189370c35bb1c41d35dc546408994f1fcbb7080",
-          "type" : "archive"
-        },
-        {
-          "type": "file",
-          "path": "pyfa"
-        },
-        {
-          "type": "file",
-          "path": "io.github.pyfa_org.Pyfa.desktop"
-        },
-        {
-            "type": "file",
-            "path": "io.github.pyfa_org.Pyfa.metainfo.xml"
-        },
-        {
-          "type": "file",
-          "path": "icons/io.github.pyfa_org.Pyfa-256.png"
-        }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "find locale/ -type f -name '*.po' -exec msgen '{}' -o '{}' \\;",
-        "python3 scripts/compile_lang.py",
-        "python3 db_update.py",
-        "mkdir -p ${FLATPAK_DEST}/lib/pyfa",
-        "cp -r eos graphs gui imgs locale service utils eve.db config.py pyfa.py db_update.py README.md LICENSE version.yml ${FLATPAK_DEST}/lib/pyfa",
-        "find ${FLATPAK_DEST}/lib/pyfa | grep -E '(__pycache__|\\.pyc|\\.pyo$)' | xargs rm -rf",
-        "install -D --mode=0755 pyfa /app/bin/pyfa",
-        "install -D -t ${FLATPAK_DEST}/share/applications/ ./io.github.pyfa_org.Pyfa.desktop",
-        "install -D ./io.github.pyfa_org.Pyfa-256.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/io.github.pyfa_org.Pyfa.png",
-        "install -D -t ${FLATPAK_DEST}/share/metainfo/ ./io.github.pyfa_org.Pyfa.metainfo.xml"
-      ]
-    }
-  ]
+    ]
 }
